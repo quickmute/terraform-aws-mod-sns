@@ -29,12 +29,6 @@ variable "sns_topic_policy" {
   type        = string
 }
 
-variable "sns_publish_bucket_arns" {
-  description = "(Optional) ARN of the S3 bucket allowed to publish to the SNS topic via S3 Bucket Notifications. This will enable bucket access."
-  type        = list(string)
-  default     = null
-}
-
 variable "account_ids" {
   description = "(Optional) The AWS Account IDs which can Publish to this SNS Topic. org_access var will override this."
   type        = list(string)
@@ -68,6 +62,12 @@ variable "self_access" {
   type        = bool
   default     = true
   description = "(Optional) Set this to false if you want to deny this account from having direct access to this topic."
+}
+
+variable "sns_publish_bucket_arns" {
+  description = "(Optional) ARN of the S3 bucket allowed to publish to the SNS topic via S3 Bucket Notifications. This will enable bucket access."
+  type        = list(string)
+  default     = null
 }
 
 variable "publish_from_events" {
